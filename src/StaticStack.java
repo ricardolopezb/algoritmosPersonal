@@ -21,7 +21,7 @@ public class StaticStack<T> implements Stack<T> {
 
     @Override
     public T peek() {
-        return data[top];
+        return data[top-1];
     }
 
     @Override
