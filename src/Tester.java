@@ -1,6 +1,7 @@
 public class Tester {
     public static void main(String[] args) {
         StaticQueue<Integer> queue = new StaticQueue<>();
+        System.out.println(queue.isEmpty());
         queue.enqueue(10);
         queue.enqueue(1);
         queue.enqueue(6);
@@ -10,11 +11,18 @@ public class Tester {
         queue.enqueue(54);
         queue.enqueue(664);
         queue.enqueue(700);
-        queue.enqueue(2345);
-        queue.enqueue(34433);
+        queue.enqueue(666);
+        queue.enqueue(896);
+        queue.enqueue(1000);
+        queue.enqueue(234234);
 
-        /*
-        StaticStack<Integer> stack = new StaticStack<>();
+        System.out.println(queue.size());
+        System.out.println(queue.isEmpty());
+
+
+
+        /*StaticStack<Integer> stack = new StaticStack<>();
+        System.out.println(stack.isEmpty());
         stack.push(10);
         stack.push(1);
         stack.push(6);
@@ -29,10 +37,9 @@ public class Tester {
         System.out.println(stack.peek());
         stack.pop();
         System.out.println(stack.peek());
+        System.out.println(stack.isEmpty());
         stack.push(666);
-        System.out.println(stack.peek());
-
-         */
+        System.out.println(stack.peek());*/
 
     }
 }

@@ -25,18 +25,22 @@ public class StaticQueue<T> implements Queue<T> {
     }
 
     @Override
-    public int size() {
-        int size = 0;
+    public int size() { //todo try to optimize size algorithm
+        /*int size = 0;
         if(back < front){
             size = (data.length-front) + back;
 
         } else{
             size = back-front;
         }
-
-
-
-        return size;
+        return size;*/
+        int counter = 0;
+        for (T datum : data) {
+            if(datum != null){
+                counter++;
+            }
+        }
+        return counter;
     }
 
     @Override
@@ -44,26 +48,26 @@ public class StaticQueue<T> implements Queue<T> {
         return back == front;
     }
 
+
+
     private void expandArray() {
         T[] newArray = (T[]) new Object[data.length+10];
-        int globalPos = 0;
-        for (int i = front; i < data.length-front ; i++) {
-            newArray[globalPos] = data[globalPos];
-            globalPos++;
+        for (int i = front; i < data.length ; i++) {
+            if(data[i] == null){
+                break;
+            }
+            newArray[i] = data[i];
         }
+
         if(back < front){
             for (int i = back; i < front; i++) {
-                newArray[globalPos] = data[globalPos];
-                globalPos++;
+                newArray[i] = data[i];
 
             }
-        } else{
-            for (int i = back; i < data.length; i++) {
-                newArray[globalPos] = data[globalPos];
-                globalPos++;
-            }
         }
-        data = newArray;
+        this.data = newArray;
+        this.front = 0;
+        this.back = size();
 
     }
 }
