@@ -14,6 +14,7 @@ public class DynamicStack<T> implements Stack<T> {
 
     @Override
     public void pop() {
+        this.top = this.top.pointer;
 
     }
 
