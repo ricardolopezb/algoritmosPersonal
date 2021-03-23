@@ -20,6 +20,7 @@ public class StaticQueue<T> implements Queue<T> {
     @Override
     public T dequeue() {
         T toReturn = data[front];
+        data[front] = null;  //es una forma de que el size funcione bien, sino me cuenta los que se les hizo dequeue()
         this.front++;
         return toReturn;
     }
