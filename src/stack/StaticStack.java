@@ -1,3 +1,5 @@
+package stack;
+
 public class StaticStack<T> implements Stack<T> {
 
     T[] data = (T[])new Object[10];
@@ -15,12 +17,14 @@ public class StaticStack<T> implements Stack<T> {
 
     @Override
     public void pop() {
+        if(top == 0) return;
         top--;
 
     }
 
     @Override
     public T peek() {
+        if(top == 0) return null;
         return data[top-1];
     }
 
@@ -31,7 +35,7 @@ public class StaticStack<T> implements Stack<T> {
 
     @Override
     public int size() {
-        return top-1;
+        return top;
     }
 
     private void expandArray(){

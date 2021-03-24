@@ -1,3 +1,5 @@
+package queue;
+
 public class StaticQueue<T> implements Queue<T> {
 
     private T[] data = (T[]) new Object[10];
@@ -19,6 +21,7 @@ public class StaticQueue<T> implements Queue<T> {
 
     @Override
     public T dequeue() {
+        if(isEmpty()) return null;
         T toReturn = data[front];
         data[front] = null;  //es una forma de que el size funcione bien, sino me cuenta los que se les hizo dequeue()
         this.front++;

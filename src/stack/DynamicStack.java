@@ -1,3 +1,7 @@
+package stack;
+
+import util.Node;
+
 public class DynamicStack<T> implements Stack<T> {
 
     Node top = null;
@@ -16,6 +20,8 @@ public class DynamicStack<T> implements Stack<T> {
 
     @Override
     public void pop() {
+        if(size == 0) return;
+
         this.top = this.top.pointer;
         this.size--;
 

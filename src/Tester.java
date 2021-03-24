@@ -1,7 +1,9 @@
+import stack.DynamicStack;
+
 public class Tester {
     public static void main(String[] args) {
 
-        DynamicStack<Integer> stack = new DynamicStack<>();
+        /*DynamicStack<Integer> stack = new DynamicStack<>();
         System.out.println(stack.isEmpty());
         stack.push(10);
         stack.push(1);
@@ -9,10 +11,15 @@ public class Tester {
         stack.push(8);
         System.out.println(stack.isEmpty());
         System.out.println(stack.peek());
+        stack.pop();
+        stack.pop();
+        stack.pop();
+
+        System.out.println(stack.isEmpty());*/
 
 
 
-        /*StaticQueue<Integer> queue = new StaticQueue<>();
+        queue.DynamicQueue<Integer> queue = new queue.DynamicQueue<>();
         System.out.println(queue.isEmpty());
         queue.enqueue(10);
         queue.enqueue(1);
@@ -34,11 +41,11 @@ public class Tester {
 
 
         System.out.println(queue.size());
-        System.out.println(queue.isEmpty());*/
+        System.out.println(queue.isEmpty());
 
 
 
-        /*StaticStack<Integer> stack = new StaticStack<>();
+        /*stack.StaticStack<Integer> stack = new stack.StaticStack<>();
         System.out.println(stack.isEmpty());
         stack.push(10);
         stack.push(1);
