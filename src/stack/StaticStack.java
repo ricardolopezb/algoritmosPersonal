@@ -1,12 +1,14 @@
 package stack;
 
-public class StaticStack<T> implements Stack<T> {
+import util.IsEmptyException;
+
+public class StaticStack<T> implements StackInterface<T> {
 
     T[] data = (T[])new Object[10];
     int top = 0;
 
     @Override
-    public void push(T x) {
+    public void stack(T x) {
         if(top == data.length-1){
             expandArray();
         }
@@ -16,8 +18,8 @@ public class StaticStack<T> implements Stack<T> {
     }
 
     @Override
-    public void pop() {
-        if(top == 0) return;
+    public void pop() throws IsEmptyException {
+        if(top == 0) throw new IsEmptyException("The stack has no elements to pop");
         top--;
 
     }
@@ -36,6 +38,13 @@ public class StaticStack<T> implements Stack<T> {
     @Override
     public int size() {
         return top;
+    }
+
+    @Override
+    public void empty() {
+        this.data = (T[]) new Object[10];
+        this.top = 0;
+
     }
 
     private void expandArray(){

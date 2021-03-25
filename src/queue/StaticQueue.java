@@ -1,6 +1,8 @@
 package queue;
 
-public class StaticQueue<T> implements Queue<T> {
+import util.IsEmptyException;
+
+public class StaticQueue<T> implements QueueInterface<T> {
 
     private T[] data = (T[]) new Object[10];
     private int front = 0;
@@ -20,8 +22,8 @@ public class StaticQueue<T> implements Queue<T> {
     }
 
     @Override
-    public T dequeue() {
-        if(isEmpty()) return null;
+    public T dequeue() throws IsEmptyException {
+        if(isEmpty()) throw new IsEmptyException("The queue has no elements to dequeue");
         T toReturn = data[front];
         data[front] = null;  //es una forma de que el size funcione bien, sino me cuenta los que se les hizo dequeue()
         this.front++;

@@ -1,8 +1,9 @@
 package queue;
 
+import util.IsEmptyException;
 import util.Node;
 
-public class DynamicQueue<T> implements Queue<T> {
+public class DynamicQueue<T> implements QueueInterface<T> {
 
     Node back;
     Node front;
@@ -26,8 +27,8 @@ public class DynamicQueue<T> implements Queue<T> {
     }
 
     @Override
-    public T dequeue() {
-        if(isEmpty()) return null;
+    public T dequeue() throws IsEmptyException {
+        if(isEmpty()) throw new IsEmptyException("The queue has no elements to dequeue");
 
         T toReturn = (T) front.data;
         front = front.pointer;

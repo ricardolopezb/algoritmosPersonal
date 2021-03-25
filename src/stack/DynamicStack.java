@@ -1,15 +1,16 @@
 package stack;
 
+import util.IsEmptyException;
 import util.Node;
 
-public class DynamicStack<T> implements Stack<T> {
+public class DynamicStack<T> implements StackInterface<T> {
 
     Node top = null;
     private int size = 0;
 
 
     @Override
-    public void push(T x) {
+    public void stack(T x) {
         Node aux = new Node();
         aux.data = x;
         aux.pointer = top;
@@ -19,8 +20,8 @@ public class DynamicStack<T> implements Stack<T> {
     }
 
     @Override
-    public void pop() {
-        if(size == 0) return;
+    public void pop() throws IsEmptyException {
+        if(size == 0) throw new IsEmptyException("The stack has no elements to pop");
 
         this.top = this.top.pointer;
         this.size--;
@@ -40,5 +41,11 @@ public class DynamicStack<T> implements Stack<T> {
     @Override
     public int size() {
         return this.size;
+    }
+
+    @Override
+    public void empty() {
+        this.top = null;
+        this.size = 0;
     }
 }
