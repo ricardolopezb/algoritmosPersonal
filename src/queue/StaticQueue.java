@@ -68,7 +68,6 @@ public class StaticQueue<T> implements QueueInterface<T> {
         if(back < front){
             for (int i = back; i < front; i++) {
                 newArray[i] = data[i];
-
             }
         }
         this.data = newArray;

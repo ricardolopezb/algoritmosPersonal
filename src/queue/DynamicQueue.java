@@ -5,8 +5,8 @@ import util.Node;
 
 public class DynamicQueue<T> implements QueueInterface<T> {
 
-    Node back;
-    Node front;
+    private Node back;
+    private Node front;
     private int size = 0;
 
     @Override
