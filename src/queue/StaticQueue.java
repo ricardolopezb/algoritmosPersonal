@@ -7,6 +7,7 @@ public class StaticQueue<T> implements QueueInterface<T> {
     private T[] data = (T[]) new Object[10];
     private int front = 0;
     private int back = 0;
+    private int size = 0;
 
     @Override
     public void enqueue(T x) {
@@ -18,6 +19,7 @@ public class StaticQueue<T> implements QueueInterface<T> {
         }
         data[back] = x;
         this.back++;
+        size++;
 
     }
 
@@ -25,28 +27,14 @@ public class StaticQueue<T> implements QueueInterface<T> {
     public T dequeue() throws IsEmptyException {
         if(isEmpty()) throw new IsEmptyException("The queue has no elements to dequeue");
         T toReturn = data[front];
-        data[front] = null;  //es una forma de que el size funcione bien, sino me cuenta los que se les hizo dequeue()
         this.front++;
+        size--;
         return toReturn;
     }
 
     @Override
-    public int size() { //todo try to optimize size algorithm
-        /*int size = 0;
-        if(back < front){
-            size = (data.length-front) + back;
-
-        } else{
-            size = back-front;
-        }
-        return size;*/
-        int counter = 0;
-        for (T datum : data) {
-            if(datum != null){
-                counter++;
-            }
-        }
-        return counter;
+    public int size() {
+        return size;
     }
 
     @Override

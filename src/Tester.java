@@ -6,7 +6,9 @@ public class Tester {
     public static void main(String[] args) {
 
         try {
-            DynamicQueue<Integer> queue = new DynamicQueue<>();
+
+
+            StaticQueue<Integer> queue = new StaticQueue<>();
             System.out.println("isEmpty(True) - "+queue.isEmpty());
 
             queue.enqueue(10);
