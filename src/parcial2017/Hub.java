@@ -1,11 +1,12 @@
 package parcial2017;
 
 import lists.DynamicList;
+import lists.StaticList;
 
 public class Hub {
     private Park park;
     private Ride[] openRides;
-    private DynamicList<Visitor> visitorsInHub;
+    private StaticList<Visitor> visitorsInHub;
     private int exitBefore18;
     private int exitBetween18and19;
     private int exitAt19;
@@ -13,7 +14,7 @@ public class Hub {
     public Hub(Park park){
         this.park = park;
         this.openRides = park.getOpenRides();
-        this.visitorsInHub = new DynamicList<>();
+        this.visitorsInHub = new StaticList<>();
         this.exitAt19 = 0;
         this.exitBefore18 = 0;
         this.exitAt19 = 0;
@@ -23,6 +24,7 @@ public class Hub {
     public void distributeVisitors(){
         for (int i = 0; i < visitorsInHub.size(); i++) {
             Visitor visitor = visitorsInHub.getActual();
+
             int probNum = AuxMethods.randomNumberInRange100();
 
             if(park.getOpenTime() < 540){
@@ -30,24 +32,24 @@ public class Hub {
                     sendVisitorToRide(visitor);
                 }
                 else if(probNum <=80){
-                    visitorsInHub.remove();
                     this.exitBefore18++;
-
                 }
+                visitorsInHub.remove();
             }
             else if(park.getOpenTime() >= 540 && park.getOpenTime()<600){
                 if(probNum <= 50){
                     sendVisitorToRide(visitor);
                 }
                 else {
-                    visitorsInHub.remove();
                     this.exitBetween18and19++;
                 }
+                visitorsInHub.remove();
             } else {
                 visitorsInHub.remove();
                 this.exitAt19++;
             }
-            visitorsInHub.goNext();
+            if(!visitorsInHub.endList()) visitorsInHub.goNext();
+
         }
 
 
@@ -60,7 +62,7 @@ public class Hub {
     }
 
     public void sendVisitorToRide(Visitor visitor){
-        Ride maxPopRide = null;
+        Ride maxPopRide = new Ride("x", 3);
         for (int i = 0; i < openRides.length; i++) {
             if(openRides[i].compareTo(maxPopRide) > 0){
                 maxPopRide = openRides[i];

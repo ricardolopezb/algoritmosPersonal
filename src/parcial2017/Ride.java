@@ -23,7 +23,7 @@ public class Ride implements Comparable{
         this.normalQueue = new DynamicQueue<>();
         this.fpQueue = new DynamicQueue<>();
         this.totalWaitTime = 0;
-        this.popularity = 10;
+        this.popularity = -1;
         this.currentVisitorsInRide = new Visitor[capacity];
     }
 

@@ -21,7 +21,7 @@ public class Park {
         this.openTime = 0;
         this.open = true;
         this.totalVisitors = 0;
-        this.hub = new Hub(this);
+
         this.ticketOffice = new TicketOffice(regTicketPrice, fpTicketPrice, this);
         this.regTicketPrice = regTicketPrice;
         this.fpTicketPrice = fpTicketPrice;
@@ -40,6 +40,7 @@ public class Park {
 
         this.openRides = new Ride[openRidesNum];
         selectOpenRides(openRidesNum);
+        this.hub = new Hub(this);
 
     }
 
