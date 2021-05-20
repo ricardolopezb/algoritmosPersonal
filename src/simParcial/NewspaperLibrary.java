@@ -1,6 +1,7 @@
 package simParcial;
 
 import lists.DynamicList;
+import queue.DynamicQueue;
 
 public class NewspaperLibrary {
     private int pubsQuant;
@@ -32,15 +33,35 @@ public class NewspaperLibrary {
     public void work(){
         int prob = AuxMethods.randomNumberInRange(0,101);
         if(prob < 50){
-
             worker.receiveCustomer();
+        } else{
+            int chosenReturnPos = AuxMethods.randomNumberInRange(0, dniUsingCopies.size());
+            dniUsingCopies.goTo(chosenReturnPos);
+            worker.checkOutCustomer(dniUsingCopies.getActual());
         }
 
+    }
 
-
+    public void close(){
+        while(dniUsingCopies.size() != 0){
+            worker.checkOutCustomer(dniUsingCopies.getActual());
+            dniUsingCopies.goNext();
+        }
     }
 
     public DynamicList<String> getUnavailablePubs() {
         return unavailablePubs;
+    }
+
+    public void addDNIUsingCopy(DNI dniToAdd) {
+        dniUsingCopies.addAfter(dniToAdd);
+    }
+
+    public DynamicList<DNI> getDniUsingCopies() {
+        return dniUsingCopies;
+    }
+
+    public DynamicList<DNI> getDniArchive() {
+        return dniArchive;
     }
 }
