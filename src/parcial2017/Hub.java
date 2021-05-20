@@ -30,11 +30,13 @@ public class Hub {
             if(park.getOpenTime() < 540){
                 if(probNum <= 60){
                     sendVisitorToRide(visitor);
+                    visitorsInHub.remove();
                 }
                 else if(probNum <=80){
                     this.exitBefore18++;
+                    visitorsInHub.remove();
                 }
-                visitorsInHub.remove();
+
             }
             else if(park.getOpenTime() >= 540 && park.getOpenTime()<600){
                 if(probNum <= 50){

@@ -49,6 +49,7 @@ public class Park {
     }
 
     public void fastFoward(){
+        openTime++;
         if(openTime > 600){
             System.out.println("Park is closed for today! Come back tomorrow!");
             System.exit(0);

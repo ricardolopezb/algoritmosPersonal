@@ -3,6 +3,10 @@ package parcial2017;
 import java.util.Random;
 
 public class AuxMethods {
+
+
+
+
     public static int randomNumberInRange100(){
         Random r = new Random();
         int low = 1;
