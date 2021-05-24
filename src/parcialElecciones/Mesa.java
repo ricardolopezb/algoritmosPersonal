@@ -1,9 +1,7 @@
 package parcialElecciones;
 
 import lists.DynamicList;
-import parcial2017.Visitor;
 import queue.DynamicQueue;
-import stack.DynamicStack;
 import stack.StaticStack;
 
 public class Mesa {
@@ -80,31 +78,75 @@ public class Mesa {
         tiemposEnCuarto.insertNext(votante.getTiempoEnCuarto());
         urna.insertNext(votante.getVoto());
     }
-    /*
+
     public void terminar(){
         System.out.println("Tiempo medio en Cola: " + getTiempoEnCola());
-        System.out.println("Partido Ganador: " + getPartidoGanador() + " - " + getVotosGanador());
+        System.out.println(ganador());
         printUltimasDiez();
         System.out.println("Tiempo medio en Cuarto Oscuro: " + getTiempoEnCuarto());
 
     }
 
-    private String getTiempoEnCuarto() {
+    private double getTiempoEnCuarto() {
+        return getMean(this.tiemposEnCuarto);
     }
 
-    private String getVotosGanador() {
+    private double getMean(DynamicList<Double> list){
+        double sum = 0;
+        list.goTo(0);
+        for (int i = 0; i < list.size(); i++) {
+            sum += list.getActual();
+            if(!list.listEnd()) {
+                list.goNext();
+            }
+        }
+        return sum/list.size();
+    }
+
+    private String ganador() {
+        int[] counter = {0,0,0,0,0};
+        String partidoDeBoleta;
+        urna.goTo(0);
+        for (int i = 0; i < urna.size(); i++) {
+            partidoDeBoleta = urna.getActual().getPartido();
+
+            if(partidoDeBoleta.equals(partidos[0])) counter[0]++;
+            else if(partidoDeBoleta.equals(partidos[1])) counter[1]++;
+            else if(partidoDeBoleta.equals(partidos[2])) counter[2]++;
+            else if(partidoDeBoleta.equals(partidos[3])) counter[3]++;
+            else if(partidoDeBoleta.equals(partidos[4])) counter[4]++;
+
+            if(!urna.listEnd()) {
+                urna.goNext();
+            }
+        }
+        int maxValue = 0;
+        int maxIndex = -1;
+        for (int i = 0; i < counter.length; i++) {
+            if(counter[i] > maxValue){
+                maxIndex = i;
+                maxValue = counter[i];
+            }
+        }
+        return "Partido ganador: " + partidos[maxIndex] + " - Votos: " + maxValue;
     }
 
     private void printUltimasDiez() {
+        if(urna.size() > 10){
+            for (int j = urna.size()-10; j < urna.size(); j++) {
+                urna.goTo(j);
+                System.out.println(urna.getActual().toString());
+            }
+        }
+
     }
 
-    private String getPartidoGanador(){
 
+
+
+    private double getTiempoEnCola() {
+        return getMean(this.tiemposEnCola);
     }
-
-
-    private String getTiempoEnCola() {
-    }*/
 
 
 }

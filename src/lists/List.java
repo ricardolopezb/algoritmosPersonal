@@ -1,6 +1,6 @@
 package lists;
 
-public interface List<L> extends GeneralList<L> {
-    void insertNext(L obj);
-    void insertPrev(L obj);
+public interface List<T> extends GeneralList<T> {
+    void insertNext(T obj);
+    void insertPrev(T obj);
 }

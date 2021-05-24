@@ -4,16 +4,15 @@ public class DynamicList<T> implements List<T> {
     private Node<T> head, window, sentinel;
     private int size;
     public DynamicList(){
-        head = new Node<>();
-        sentinel = new Node<>();
+        head = new Node<T>();
+        sentinel = new Node<T>();
         head.next = sentinel;
         window = head;
         size = 0;
     }
-
     @Override
     public T getActual() {
-        return window.obj;
+        return window.value;
     }
     @Override
     public int getActualPosition() {
@@ -29,7 +28,11 @@ public class DynamicList<T> implements List<T> {
         return head.next == sentinel;
     }
     @Override
-    public boolean endList() {
+    public boolean listStart(){
+        return head.next == window;
+    }
+    @Override
+    public boolean listEnd() {
         return window.next == sentinel;
     }
     @Override
@@ -85,26 +88,5 @@ public class DynamicList<T> implements List<T> {
     @Override
     public int size() {
         return size;
-    }
-
-
-    private static class Node<E> {
-        E obj;
-        Node<E> next;
-        Node() {
-            obj = null;
-            next = null;
-        }
-        Node(E o) {
-            obj = o;
-            next = null;
-        }
-        Node(E o, Node<E> next) {
-            this(o);
-            this.next = next;
-        }
-        boolean hasNoObj() {
-            return obj == null;
-        }
     }
 }

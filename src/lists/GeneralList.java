@@ -1,14 +1,15 @@
 package lists;
 
-public interface GeneralList<L> {
+public interface GeneralList<T> {
     void remove();
     void goNext();
     void goPrev();
     void goTo(int n);
-    L getActual();
+    T getActual();
     int getActualPosition();
     int size();
     boolean isVoid();
-    boolean endList();
-    GeneralList<L> clone();
+    boolean listEnd();
+    boolean listStart();
+    GeneralList<T> clone();
 }

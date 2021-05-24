@@ -1,6 +1,5 @@
 package parcial2017;
 
-import lists.StaticList;
 import queue.DynamicQueue;
 import util.IsEmptyException;
 

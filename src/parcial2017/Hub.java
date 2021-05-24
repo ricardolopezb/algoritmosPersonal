@@ -1,6 +1,5 @@
 package parcial2017;
 
-import lists.DynamicList;
 import lists.StaticList;
 
 public class Hub {
@@ -50,7 +49,7 @@ public class Hub {
                 visitorsInHub.remove();
                 this.exitAt19++;
             }
-            if(!visitorsInHub.endList()) visitorsInHub.goNext();
+            if(!visitorsInHub.listEnd()) visitorsInHub.goNext();
 
         }
 

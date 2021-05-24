@@ -10,4 +10,12 @@ public class Boleta {
         codigoGeneral++;
         this.id = String.valueOf(codigoGeneral);
     }
+
+    public String getPartido() {
+        return partido;
+    }
+
+    public String toString(){
+        return "Boleta No. "+id+"\nPartido: " + partido + "\n\n";
+    }
 }

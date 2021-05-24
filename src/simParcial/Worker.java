@@ -22,7 +22,7 @@ public class Worker {
         dni.checkOut();
         Publication borrowedPub = searchPub(dni.getChosenPub());
         borrowedPub.returnCopy(dni.getGivenCopy(), dni.getTimeUsingPub());
-        library.getDniArchive().addAfter(dni);
+        library.getDniArchive().insertNext(dni);
         library.getDniUsingCopies().remove();
 
     }

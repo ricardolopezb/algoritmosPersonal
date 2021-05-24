@@ -1,7 +1,6 @@
 package simParcial;
 
 import lists.DynamicList;
-import queue.DynamicQueue;
 
 public class NewspaperLibrary {
     private int pubsQuant;
@@ -54,7 +53,7 @@ public class NewspaperLibrary {
     }
 
     public void addDNIUsingCopy(DNI dniToAdd) {
-        dniUsingCopies.addAfter(dniToAdd);
+        dniUsingCopies.insertNext(dniToAdd);
     }
 
     public DynamicList<DNI> getDniUsingCopies() {

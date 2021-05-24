@@ -1,3 +1,4 @@
+import lists.DynamicList;
 import org.junit.Test;
 import org.junit.rules.Stopwatch;
 import stack.*;
@@ -12,16 +13,18 @@ public class Tester {
     int n = 100;
 
     public static void main(String[] args) {
-        LocalTime x = LocalTime.now();
-        System.out.println(x.toString());
-        int[] y = new int[10000000];
-        for (int i = 0; i < y.length; i++) {
-            y[i] =2;
+        DynamicList<Integer> list = new DynamicList<>();
+        int i = 0;
+        while(i<27){
+            list.insertNext(i);
+            i++;
         }
-        LocalTime z = LocalTime.now();
-        System.out.println(z.toString());
 
-        System.out.println(SECONDS.between(x,z));
+        for (int j = list.size()-10; j < list.size(); j++) {
+            list.goTo(j);
+            System.out.println(list.getActual().toString());
+
+        }
     }
 
 

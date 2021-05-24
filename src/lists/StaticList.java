@@ -36,9 +36,15 @@ public class StaticList<T> implements List<T> {
         return data[0] == null;
     }
     @Override
-    public boolean endList() {
+    public boolean listEnd() {
         return window == data.length - 1;
     }
+
+    @Override
+    public boolean listStart() {
+        return window == 0;
+    }
+
     @Override
     public GeneralList<T> clone() {
         Object[] cloned = new Object[data.length];
