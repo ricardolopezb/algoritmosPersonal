@@ -28,11 +28,11 @@ public class Worker {
         Publication chosenPub = pubs[chosenPubPos];
 
         if(chosenPub.getAvailableCopies() == 0){
-            library.getUnavailablePubs().addAfter(chosenPub.getCode());
+            library.getUnavailablePubs().insertNext(chosenPub.getCode());
         } else{
             String copyCode = chosenPub.retrieveCopy();
         }
 
-
+        return null;
     }
 }
