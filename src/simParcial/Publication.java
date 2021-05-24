@@ -22,7 +22,15 @@ public class Publication {
         return code;
     }
 
-    //todo receiveCopy
+    public void returnCopy(String code, int timeOfUsage){
+        for (int i = 0; i < copies.length; i++) {
+            if(copies[i].getCopyCode().equals(code)){
+                copies[i].setInUse(false);
+                copies[i].addUsageTime(timeOfUsage);
+                this.availableCopies++;
+            }
+        }
+    }
 
     public String retrieveCopy() {
         for (int i = 0; i < copies.length; i++) {

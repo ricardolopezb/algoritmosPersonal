@@ -28,4 +28,8 @@ public class Copy {
     public void setInUse(boolean inUse) {
         this.inUse = inUse;
     }
+
+    public void addUsageTime(int time){
+        this.totalTimeInUse+=time;
+    }
 }

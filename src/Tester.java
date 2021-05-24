@@ -1,25 +1,28 @@
-import lists.DynamicList;
+import org.junit.Test;
+import org.junit.rules.Stopwatch;
 import stack.*;
 import queue.*;
 import util.IsEmptyException;
 
+import java.time.LocalTime;
+
+import static java.time.temporal.ChronoUnit.SECONDS;
+
 public class Tester {
+    int n = 100;
+
     public static void main(String[] args) {
-
-        DynamicList<Integer> list = new DynamicList<>();
-
-        list.insertNext(5);
-        list.insertNext(9);
-        list.insertNext(3);
-        list.insertPrev(50);
-        list.insertNext(6);
-
-        list.goTo(0);
-        for (int i = 0; i < list.size(); i++) {
-            System.out.println(list.getActual());
-            if(!list.endList())
-                list.goNext();
+        LocalTime x = LocalTime.now();
+        System.out.println(x.toString());
+        int[] y = new int[10000000];
+        for (int i = 0; i < y.length; i++) {
+            y[i] =2;
         }
+        LocalTime z = LocalTime.now();
+        System.out.println(z.toString());
+
+        System.out.println(SECONDS.between(x,z));
     }
+
 
 }
