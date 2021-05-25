@@ -84,7 +84,7 @@ public class Mesa {
         System.out.println(ganador());
         printUltimasDiez();
         System.out.println("Tiempo medio en Cuarto Oscuro: " + getTiempoEnCuarto());
-
+        System.exit(2);
     }
 
     private double getTiempoEnCuarto() {
