@@ -63,7 +63,9 @@ public class Pump {
             this.minuteCounter = 0;
         } else{
             minuteCounter++;
+
         }
+        saveCurrentSize();
     }
 
     public int getRevenue() {
@@ -74,7 +76,7 @@ public class Pump {
         return busy;
     }
 
-    public String getMeanSize() {
-        return cumSize/station.getCurrentMin() + " minutes";
+    public double getMeanSize() {
+        return ((double)cumSize)/station.getCurrentMin();
     }
 }

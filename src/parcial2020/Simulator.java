@@ -13,7 +13,7 @@ public class Simulator {
         station.fastFoward1Min();
     }
     public void action2(){
-        station.getPumpServiceTime();
+        station.printWaitTimesInPump();
     }
     public void action3(){
         station.end();

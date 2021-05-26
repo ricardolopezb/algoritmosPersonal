@@ -43,6 +43,8 @@ public class Parking {
     }
 
     public double getMeanParkingTime() {
-        return (double)totalStayTimes/totalCarsParked;
+        if(totalCarsParked != 0)return (double)totalStayTimes/totalCarsParked;
+        return 0;
+
     }
 }

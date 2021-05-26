@@ -29,7 +29,7 @@ public class GasStation {
     public void distributeCar(){
         Car car = new Car(this);
         int probNum = Simulator.randomNumberInRange(1,101);
-        if(probNum >= 10){
+        if(probNum <= 10){
             int condProbNum = Simulator.randomNumberInRange(1,101);
             if(condProbNum <= 50){
                 awayCars++;
@@ -61,7 +61,7 @@ public class GasStation {
         int num = 1;
         for (int i = 0; i < pumps.length; i++) {
             if(pumps[i].isBusy()){
-                System.out.println("Pump "+num+": "+ pumps[i].getCurrentCarWaitingTime());
+                System.out.println("Pump "+num+": "+ pumps[i].getCurrentCarWaitingTime()+" minutes");
                 num++;
             }
         }
@@ -71,7 +71,7 @@ public class GasStation {
         System.out.println("Cars that didn't stop:" + awayCars);
         getPumpRevenue();
         getPumpMeanSize();
-        System.out.println("Mean parked time: "+parking.getMeanParkingTime());
+        System.out.println("Mean parked time: "+parking.getMeanParkingTime()+" minutes");
         System.exit(2);
     }
 
@@ -83,7 +83,7 @@ public class GasStation {
 
     private void getPumpRevenue(){
         for (int i = 0; i < pumps.length; i++) {
-            System.out.println("Pump No. " + (i+1) + " - Revenue: "+pumps[i].getRevenue());
+            System.out.println("Pump No. " + (i+1) + " - Revenue: $"+pumps[i].getRevenue());
         }
     }
 
