@@ -1,6 +1,6 @@
 package lists;
 
-public class OrderedList<T extends Comparable<T>> extends DynamicList<T> {
+public class OrderedDynamicList<T extends Comparable<T>> extends DynamicList<T> {
 
     public void add(T t) {
         if (size() == 0 || t.compareTo(getActual()) == 0) {

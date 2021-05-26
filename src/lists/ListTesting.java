@@ -37,7 +37,7 @@ public class ListTesting {
     }
     @Test
     public void orderedList(){
-        OrderedList<Integer> o = new OrderedList<>();
+        OrderedDynamicList<Integer> o = new OrderedDynamicList<>();
         o.add(20);
         o.add(15);
         o.add(18);
