@@ -24,6 +24,7 @@ public class OrderedDynamicList<T extends Comparable<T>> extends DynamicList<T> 
         }
         insertNext(t);
     }
+
     private void goBackwards(T t){
         while(!listStart()){
             goPrev();
