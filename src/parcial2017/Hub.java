@@ -22,6 +22,7 @@ public class Hub {
 
     public void distributeVisitors(){
         for (int i = 0; i < visitorsInHub.size(); i++) {
+            visitorsInHub.goTo(i);
             Visitor visitor = visitorsInHub.getActual();
 
             int probNum = AuxMethods.randomNumberInRange100();
@@ -49,7 +50,7 @@ public class Hub {
                 visitorsInHub.remove();
                 this.exitAt19++;
             }
-            if(!visitorsInHub.listEnd()) visitorsInHub.goNext();
+
 
         }
 

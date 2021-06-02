@@ -39,7 +39,7 @@ public class TreeEvenSum {
     }
 
 
-    public static void insertIntoTrees(BinaryTree<Cuenta> tree, BinarySearchTree<Cuenta> sucA, BinarySearchTree<Cuenta> sucB){
+    private static void insertIntoTrees(BinaryTree<Cuenta> tree, BinarySearchTree<Cuenta> sucA, BinarySearchTree<Cuenta> sucB){
         if(tree.isEmpty()) return;
         try{
             if(tree.getRoot().getSucursal() == 'A') sucA.insert(tree.getRoot());

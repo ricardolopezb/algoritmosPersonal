@@ -8,6 +8,7 @@ import org.junit.Test;
 
 public class Tester {
     static BinaryTree<Integer> tree = new BinaryTree<Integer>(5, new BinaryTree<Integer>(20, new BinaryTree<Integer>(2), new BinaryTree<>()), new BinaryTree<Integer>(3, new BinaryTree<Integer>(9), new BinaryTree<Integer>(5)));
+    static BinaryTree<Integer> tree4 = new BinaryTree<Integer>(22, new BinaryTree<Integer>(0, new BinaryTree<Integer>(0), new BinaryTree<>()), new BinaryTree<Integer>(17, new BinaryTree<Integer>(9), new BinaryTree<Integer>(5)));
     static BinaryTree<Integer> finishedTree = new BinaryTree<Integer>(22, new BinaryTree<Integer>(22, new BinaryTree<Integer>(2), new BinaryTree<>()), new BinaryTree<Integer>(0, new BinaryTree<Integer>(0), new BinaryTree<Integer>(0)));
     static BinaryTreeApi api = new BinaryTreeApi();
 
@@ -21,13 +22,43 @@ public class Tester {
     };
     static BinaryTree<Cuenta> cuentasTree = new BinaryTree<Cuenta>(cuentas[0], new BinaryTree<Cuenta>(cuentas[1], new BinaryTree<Cuenta>(cuentas[3]), new BinaryTree<>()), new BinaryTree<Cuenta>(cuentas[2], new BinaryTree<Cuenta>(cuentas[4]), new BinaryTree<Cuenta>(cuentas[5])));
 
+    static BinaryTree<Integer> tree1 = new BinaryTree<>(80);
+    static BinaryTree<Integer> tree2 = new BinaryTree<>(90);
+    static BinaryTree<Integer> arbolinComparable = new BinaryTree<Integer>(9, tree1, tree2);
+
+    static Parcial2020 esBSTdadoBS = new Parcial2020();
+    static Parcial2020 p = new Parcial2020();
+
+
+    @Test
+    public void checkBST(){
+        Assert.assertFalse(esBSTdadoBS.isBST(arbolinComparable));
+    }
+
+    @Test
+    public void BSTCreationTest(){
+        BinaryTree<Comparable> t= new BinaryTree<Comparable>(5, new BinaryTree<Comparable>(10), new BinaryTree<Comparable>(50));
+        BinarySearchTree<Comparable> bst = p.makeBSTfromBT(t);
+        api.inorder(t);
+        api.inorder(bst);
+    }
+
+
+    @Test
+    public void oddSumTreeTest(){
+        Assert.assertTrue(api.equals(tree4, p.getOddSumTree(tree)));
+    }
+
 
     public static void main(String[] args) {
-        BinarySearchTree<Cuenta>[] trees = TreeEvenSum.distributeTree(cuentasTree);
-        //api.perLevel(cuentasTree);
-        System.out.println("*********");
-        api.perLevel(trees[0]);
-        api.perLevel(trees[1]);
+        try{
+            //p.generateProvinces();
+            //p.showSortedProvPerRain();
+            p.generateCalls();
+            p.callsLongerThan7min();
+            p.callsPerCountry();
+
+        } catch(Exception e){e.getMessage();}
     }
 
     @Test

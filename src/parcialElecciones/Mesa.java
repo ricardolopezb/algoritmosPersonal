@@ -138,7 +138,6 @@ public class Mesa {
                 System.out.println(urna.getActual().toString());
             }
         }
-
     }
 
 

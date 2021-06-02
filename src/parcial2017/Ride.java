@@ -3,7 +3,7 @@ package parcial2017;
 import queue.DynamicQueue;
 import util.IsEmptyException;
 
-public class Ride implements Comparable{
+public class Ride implements Comparable<Ride>{
     private String name;
     private int capacity;
     private int totalWaitTime;
@@ -44,11 +44,7 @@ public class Ride implements Comparable{
     }
 
 
-    @Override
-    public int compareTo(Object o) {
-        if(o == null) return 1;
-        return Integer.compare(this.popularity, ((Ride)o).popularity);
-    }
+
 
     public void cycle(Hub hub){
         if(currentVisitorsInRide[0] != null){
@@ -81,5 +77,11 @@ public class Ride implements Comparable{
 
     public String getName() {
         return name;
+    }
+
+    @Override
+    public int compareTo(Ride o) {
+        if(o == null) return 1;
+        return Integer.compare(this.popularity, ((Ride)o).popularity);
     }
 }

@@ -1,5 +1,7 @@
 package parcial2017;
 
+import lists.OrderedDynamicList;
+
 import java.sql.SQLOutput;
 import java.util.Random;
 
@@ -41,6 +43,7 @@ public class Park {
         this.openRides = new Ride[openRidesNum];
         selectOpenRides(openRidesNum);
         this.hub = new Hub(this);
+
 
     }
 
@@ -97,14 +100,21 @@ public class Park {
     }
 
     public void showExitPercentages(){
+
+        float p1 =((float)hub.getExitBefore18()/totalVisitors)*100;
+        float p2 = ((float)hub.getExitBetween18and19()/totalVisitors)*100;
+        float p3 = ((float)hub.getExitAt19()/totalVisitors)*100;
+
+
         System.out.println("*********************************************");
-        System.out.println("% before 18hs: "+ (hub.getExitBefore18()/totalVisitors)*100);
-        System.out.println("% between 18hs and 19hs: "+ (hub.getExitBetween18and19()/totalVisitors)*100);
-        System.out.println("% at 19hs: "+ (hub.getExitAt19()/totalVisitors)*100);
+        System.out.println("% before 18hs: "+ p1 + "%");
+        System.out.println("% between 18hs and 19hs: "+ p2 + "%");
+        System.out.println("% at 19hs: "+ p3 + "%");
         System.out.println("*********************************************");
     }
 
     public void showRideRankingByAverage() {
+        OrderedDynamicList<Ride> rides = new OrderedDynamicList<>();
         for (int i = 0; i < openRides.length; i++) {
             openRides[i].computeAverageWaitTime();
         }
