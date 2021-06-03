@@ -8,7 +8,6 @@ import binaryTree.BinaryTree;
 import lists.OrderedDynamicList;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.util.Random;
@@ -92,12 +91,12 @@ public class Parcial2020 {
         return bst;
     }
 
-    public void insertIntoBST(BinaryTree<Comparable> tree, BinarySearchTree<Comparable> bst){
-        if(tree.isEmpty()) return;
-        try{
+    public void insertIntoBST(BinaryTree<Comparable> tree, BinarySearchTree<Comparable> bst) {
+        if (tree.isEmpty()) return;
+        try {
             bst.insert(tree.getRoot());
 
-        } catch(BSTException e){
+        } catch (BSTException e) {
             e.getMessage();
         } finally {
             insertIntoBST(tree.getRight(), bst);
@@ -105,7 +104,6 @@ public class Parcial2020 {
         }
 
     }
-
 
 
     /**Un Banco utiliza un árbol binario para guardar la información
@@ -207,9 +205,6 @@ public class Parcial2020 {
      }
 
 
-
-
-
     /**
      * El departamento de estadística de una empresa telefónica recibe un archivo de texto con las
      * llamadas que se hicieron al exterior durante un determinado mes. Cada línea del archivo contiene
@@ -258,7 +253,6 @@ public class Parcial2020 {
 
     }
 
-
     public  Call[] readCalls() throws IOException {
         File file = new File("calls.txt");
         RandomAccessFile raf = new RandomAccessFile(file, "rw");
@@ -272,6 +266,12 @@ public class Parcial2020 {
         raf.close();
         return calls;
 
+    }
+
+
+    public BinaryTree<Object> reflect(BinaryTree<Integer> tree){
+        if(tree.isEmpty()) return new BinaryTree<>();
+        return new BinaryTree<>(tree.getRoot(), reflect(tree.getRight()), reflect(tree.getLeft()));
     }
 
 

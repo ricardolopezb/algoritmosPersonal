@@ -11,6 +11,7 @@ public class Tester {
     static BinaryTree<Integer> tree4 = new BinaryTree<Integer>(22, new BinaryTree<Integer>(0, new BinaryTree<Integer>(0), new BinaryTree<>()), new BinaryTree<Integer>(17, new BinaryTree<Integer>(9), new BinaryTree<Integer>(5)));
     static BinaryTree<Integer> finishedTree = new BinaryTree<Integer>(22, new BinaryTree<Integer>(22, new BinaryTree<Integer>(2), new BinaryTree<>()), new BinaryTree<Integer>(0, new BinaryTree<Integer>(0), new BinaryTree<Integer>(0)));
     static BinaryTreeApi api = new BinaryTreeApi();
+    static BinaryTree<Integer> reflected_tree = new BinaryTree<Integer>(5, new BinaryTree<Integer>(3, new BinaryTree<Integer>(5), new BinaryTree<Integer>(9)), new BinaryTree<Integer>(20, new BinaryTree<Integer>(), new BinaryTree<>(2)));
 
     static Cuenta[] cuentas = {
             new Cuenta('A', 10),
@@ -33,6 +34,12 @@ public class Tester {
     @Test
     public void checkBST(){
         Assert.assertFalse(esBSTdadoBS.isBST(arbolinComparable));
+    }
+
+
+    @Test
+    public void checkReflection(){
+        Assert.assertTrue(api.equals(p.reflect(tree), reflected_tree));
     }
 
     @Test
